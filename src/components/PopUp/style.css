@@ -1,0 +1,17 @@
+/* .show {
+    margin: 0 auto;
+    width: 400px;
+    background-color: lightgray;
+    padding: 1rem;
+    border-radius: 4px;
+  
+    transition: all .5s ease-in-out; */
+    /* transform: translateY(-100%); */
+    /* opacity: 0; */
+/* } */
+  
+.show[isOpen="true"] {
+    transform: translateY(50%);
+    opacity: 1;
+}
+  
