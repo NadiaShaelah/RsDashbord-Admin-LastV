@@ -105,7 +105,7 @@ function Orders() {
                                                 <th scope="col" className="px-6 py-4">Prix avec frais</th>
                                                 <th scope="col" className="px-6 py-4">Date</th>
                                                 <th scope="col" className="px-6 py-4">Etat</th>
-                                                <th scope="col" className="px-6 py-4">Payement</th>
+                                                <th scope="col" className="px-6 py-4">Paiement</th>
                                             </tr>
                                         </thead>
                                         <tbody className=''>
@@ -142,7 +142,7 @@ function Orders() {
                                                 <th scope="col" className="px-6 py-4">Prix avec frais</th>
                                                 <th scope="col" className="px-6 py-4">Date</th>
                                                 <th scope="col" className="px-6 py-4">Etat</th>
-                                                <th scope="col" className="px-6 py-4">Payement</th>
+                                                <th scope="col" className="px-6 py-4">Paiement</th>
                                                 <th scope="col" className="px-6 py-4">Action</th>
                                             </tr>
                                         </thead>
@@ -213,7 +213,7 @@ function Orders() {
                                                 <th scope="col" className="px-6 py-4">Description</th>
                                                 <th scope="col" className="px-6 py-4">Date</th>
                                                 <th scope="col" className="px-6 py-4">Etat</th>
-                                                <th scope="col" className="px-6 py-4">Payement</th>
+                                                <th scope="col" className="px-6 py-4">Paiement</th>
                                                 <th scope="col" className="px-6 py-4">Action</th>
                                             </tr>
                                         </thead>
@@ -283,7 +283,7 @@ function Orders() {
                                                 <th scope="col" className="px-6 py-4">Description</th>
                                                 <th scope="col" className="px-6 py-4">Date</th>
                                                 <th scope="col" className="px-6 py-4">Etat</th>                                                
-                                                <th scope="col" className="px-6 py-4">Payement</th>
+                                                <th scope="col" className="px-6 py-4">Paiement</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -319,7 +319,7 @@ function Orders() {
                                                 <th scope="col" className="px-6 py-4">Client</th>
                                                 <th scope="col" className="px-6 py-4">Description</th>
                                                 <th scope="col" className="px-6 py-4">Date</th>
-                                                <th scope="col" className="px-6 py-4">Payement</th>
+                                                <th scope="col" className="px-6 py-4">Paiement</th>
                                                 <th scope="col" className="px-6 py-4">Etat</th>
                                             </tr>
                                         </thead>
@@ -357,7 +357,7 @@ function Orders() {
                                                 <th scope="col" className="px-6 py-4">Client</th>
                                                 <th scope="col" className="px-6 py-4">Prix avec frais</th>
                                                 <th scope="col" className="px-6 py-4">Date</th>
-                                                <th scope="col" className="px-6 py-4">Payement</th>
+                                                <th scope="col" className="px-6 py-4">Paiement</th>
                                                 <th scope="col" className="px-6 py-4">Etat</th>
                                             </tr>
                                         </thead>
