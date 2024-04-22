@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function NavBar() {
     return (
         <nav className='w-full fixed top-0 bg-white  shadow-[0_0_12px_rgba(0,0,0,0.2)]'>
-            <ul className="container mx-auto py-6 flex justify-between">
+            <ul className="container mx-auto py-6 flex justify-between flex-col md:flex-row gap-4 md:gap-0 px-4 md:px-0">
                 <li><h1 className='text-4xl font-semibold text-blue-950'>RsChain</h1></li>
                 <li>
                     <div className='flex'>
@@ -14,7 +14,7 @@ function NavBar() {
                         <button className=' py-1 px-3 bg-blue-950 text-slate-500'><FontAwesomeIcon icon={faSearch}/></button>
                     </div>
                 </li>
-                <li className='flex gap-2'>
+                <li className='hidden lg:flex gap-2'>
                     <span className='cursor-pointer border border-blue-950 text-blue-950 px-3 py-1 transition duration-500 ease-in-out hover:bg-blue-950 hover:text-white'>
                         <FontAwesomeIcon icon={faBell}/>
                     </span>
