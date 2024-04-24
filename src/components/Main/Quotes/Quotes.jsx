@@ -147,7 +147,7 @@ function Quotes() {
                                         </thead>
                                         <tbody>
                                         {quotesDatas && quotesDatas !== "" ?
-                                            Object.values(quotesDatas).map((quote,index) => (
+                                            Object.values(quotesDatas).reverse().map((quote,index) => (
                                             <tr key={index} className="border-b dark:border-blue-300 hover:bg-blue-50 cursor-pointer">
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/quote-details?id=${quote.devisId}`}>{index+1}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.devisId}</Link></td>
@@ -192,7 +192,7 @@ function Quotes() {
                                         </thead>
                                         <tbody>
                                         {quotesDatas && quotesDatas !== "" ?
-                                            Object.values(quotesDatas).filter((item) => item.status === "En attente").map((quote,index) => (
+                                            Object.values(quotesDatas).filter((item) => item.status === "En attente").reverse().map((quote,index) => (
                                             <tr key={index} className="border-b dark:border-blue-300 hover:bg-blue-50 cursor-pointer">
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/quote-details?id=${quote.devisId}`}>{index+1}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.devisId}</Link></td>
@@ -266,7 +266,7 @@ function Quotes() {
                                         </thead>
                                         <tbody>
                                         {quotesDatas && quotesDatas !== "" ?
-                                            Object.values(quotesDatas).filter((item) => item.status === "Réglé").map((quote,index) => (
+                                            Object.values(quotesDatas).filter((item) => item.status === "Réglé").reverse().map((quote,index) => (
                                             <tr key={index} className="border-b dark:border-blue-300 hover:bg-blue-50 cursor-pointer">
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/quote-details?id=${quote.devisId}`}>{index+1}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.devisId}</Link></td>
@@ -338,7 +338,7 @@ function Quotes() {
                                         </thead>
                                         <tbody>
                                         {quotesDatas && quotesDatas !== "" ?
-                                            Object.values(quotesDatas).filter((item) => item.status === "En cours").map((quote,index) => (
+                                            Object.values(quotesDatas).filter((item) => item.status === "En cours").reverse().map((quote,index) => (
                                             <tr key={index} className="border-b dark:border-blue-300 hover:bg-blue-50 cursor-pointer">
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/quote-details?id=${quote.devisId}`}>{index+1}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.devisId}</Link></td>
@@ -410,7 +410,7 @@ function Quotes() {
                                         </thead>
                                         <tbody>
                                         {quotesDatas && quotesDatas !== "" ?
-                                            Object.values(quotesDatas).filter((item) => item.status === "Expédié").map((quote,index) => (
+                                            Object.values(quotesDatas).filter((item) => item.status === "Expédié").reverse().map((quote,index) => (
                                             <tr key={index} className="border-b dark:border-blue-300 hover:bg-blue-50 cursor-pointer">
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/quote-details?id=${quote.devisId}`}>{index+1}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.devisId}</Link></td>

@@ -61,7 +61,84 @@ function OrderDetails() {
                     </h1>
                     <small className=''>{orderInfos?.cartlist?.length} produits</small>
                 </div>
-                <div className="grid grid-cols-[1fr_24rem] gap-4 mt-10">
+                <div className="container mx-auto">
+                    <div className="grid grid-cols-12 bg-green-50">
+                        <div className="flex flex-col gap-4 col-span-12">
+                            <div className="bg-white grid grid-cols-2 gap-4 rounded-md p-4">
+                                <div className="flex flex-col gap-3">
+                                    <h1 className='text-xl underline font-semibold'>Adresse de livraison</h1>
+                                    {orderInfos?.cartlist?.map((product, i) => (
+                                        <div key={i} className="flex flex-col gap-1">
+                                            <span>{product.email}</span>
+                                            <span>{product.lieu}</span>
+                                            <span>{product.address}</span>
+                                            <span>{product.numero}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="flex flex-col gap-3">
+                                    <h1 className='text-xl underline font-semibold'>Adresse de facturation</h1>
+                                    {orderInfos?.cartlist?.map((product, i) => (
+                                        <div key={i} className="flex flex-col gap-1">
+                                            <span>{product.email}</span>
+                                            <span>{product.lieu}</span>
+                                            <span>{product.address}</span>
+                                            <span>{product.numero}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="bg-white flex justify-center rounded-md">
+                                <table className='mt-6 '>
+                                    <thead className="border-b font-medium dark:border-green-300">
+                                        <tr>
+                                            <th scope="col" className="px-6 py-4">Image</th>
+                                            <th scope="col" className="px-6 py-4">ProductID</th>
+                                            <th scope="col" className="px-6 py-4">Nom du produit</th>
+                                            <th scope="col" className="px-6 py-4">Date commande</th>
+                                            {/* <th scope="col" className="px-6 py-4">Statut</th> */}
+                                            {/* <th scope="col" className="px-6 py-4">Description</th> */}
+                                            <th scope="col" className="px-6 py-4">Etat du produit</th>
+                                            <th scope="col" className="px-6 py-4">Client</th>
+                                            <th scope="col" className="px-6 py-4">Boutique</th>
+                                            <th scope="col" className="px-6 py-4">Quantitée</th>
+                                            <th scope="col" className="px-6 py-4">Prix</th>
+                                        </tr>
+                                    </thead>
+                                    {orderInfos?.cartlist?.map((product, i) => (
+                                    <tbody>
+                                        <tr className="border-b dark:border-green-300 hover:bg-green-50 cursor-pointer">
+                                            <td className="whitespace-nowrap px-6 py-4"><img className='w-full h-20' src={product.orderImageUrl[0]} alt={product.orderName} /></td>
+                                            <td className="whitespace-nowrap px-6 py-4">{product.productId}</td>
+                                            <td className="whitespace-nowrap px-6 py-4">{product.orderName}</td>
+                                            <td className="whitespace-nowrap px-6 py-4">{product.dateCommande}</td>
+                                            {/* <td className="whitespace-nowrap px-6 py-4">{product.status}</td> */}
+                                            {/* <td className="whitespace-nowrap px-6 py-4">{product.orderDescription}</td> */}
+                                            <td className="whitespace-nowrap px-6 py-4 capitalize">{product.orderEtat}</td>
+                                            <td className="whitespace-nowrap px-6 py-4">{product.email}</td>
+                                            <td className="whitespace-nowrap px-6 py-4">{product.orderOrganisation}</td>
+                                            <td className="whitespace-nowrap px-6 py-4">{product.orderQte}</td>
+                                            <td className="whitespace-nowrap px-6 py-4">{product.orderPrice}</td>
+                                        </tr>
+                                    </tbody>
+                                    ))}
+                                </table>
+                            </div>
+                            <div className="bg-white rounded-md flex flex-col gap-4 p-4">
+                                {orderInfos?.cartlist?.map((product, i) => (
+                                    <div className="flex flex-col gap-2">
+                                        
+                                        <h2 className='text-lg font-semibold'>Description : <span className='text-sm font-semibold ml-2 text-green-500'>{product.orderName}</span></h2>
+                                        <span>{product.orderDescription}.</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                {/* <div className="grid grid-cols-[1fr_24rem] gap-4 mt-10">
                     <div className="-ml-20">
                         <h2 className='text-center text-xl font-semibold text-slate-800'>Les produits de la commande.</h2>
                         <table className='mt-6 '>
@@ -70,7 +147,7 @@ function OrderDetails() {
                                     <th scope="col" className="px-6 py-4">Image</th>
                                     <th scope="col" className="px-6 py-4">ProductID</th>
                                     <th scope="col" className="px-6 py-4">Nom du produit</th>
-                                    {/* <th scope="col" className="px-6 py-4">Description</th> */}
+                                    <th scope="col" className="px-6 py-4">Description</th>
                                     <th scope="col" className="px-6 py-4">Etat du produit</th>
                                     <th scope="col" className="px-6 py-4">Client</th>
                                     <th scope="col" className="px-6 py-4">Boutique</th>
@@ -84,7 +161,7 @@ function OrderDetails() {
                                     <td className="whitespace-nowrap px-6 py-4"><img className='w-full' src={product.orderImageUrl[0]} alt={product.orderName} /></td>
                                     <td className="whitespace-nowrap px-6 py-4">{product.productId}</td>
                                     <td className="whitespace-nowrap px-6 py-4">{product.orderName}</td>
-                                    {/* <td className="whitespace-nowrap px-6 py-4">{product.orderDescription}</td> */}
+                                    <td className="whitespace-nowrap px-6 py-4">{product.orderDescription}</td>
                                     <td className="whitespace-nowrap px-6 py-4 capitalize">{product.orderEtat}</td>
                                     <td className="whitespace-nowrap px-6 py-4">{product.email}</td>
                                     <td className="whitespace-nowrap px-6 py-4">{product.orderOrganisation}</td>
@@ -147,7 +224,7 @@ function OrderDetails() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     )

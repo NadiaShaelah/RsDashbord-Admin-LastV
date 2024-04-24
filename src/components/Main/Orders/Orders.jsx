@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 import { OrdersTab, OrdersTabs } from './OrdersTabs'
 
 import { database } from '../../../firebase-config'
-import { getDatabase, onValue, ref, update } from "firebase/database";
+import { getDatabase, onValue, ref, update, query, limitToLast, orderByChild,orderByValue } from "firebase/database";
 
 
-import { query, where } from "firebase/firestore";
+import { where, orderBy, getDocs } from "firebase/firestore";
 import PopUp from '../../PopUp/PopUp';
 import PopUpValidation from '../../PopUp/PopUpValidation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 function Orders() {
 
@@ -27,15 +28,25 @@ function Orders() {
     const getOrdersDatas = async () => {
         setLoad(false)
         let datas = ref(getDatabase(database), "/Commandes");
-        onValue(datas, snapshot => {
+        const q = query(datas, orderByChild("totalPrice"))
+        
+        onValue(q, snapshot => {
             const data = snapshot.val()
-            console.log(data)
+            console.log("data  :: ", data)
             setOrdersDatas(data)
-            // const q = query(datas, where("status", "===", "En cours"))
-            // console.log("qp :: ", q);
         })
+        /**
+         *  const ordersRef = collection(db, "orders");
+            const q = query(ordersRef, orderBy("orderCreatedAt");
+            const querySnapshot = await getDocs(q);
+
+            //orderBy("totalPrice", "desc"))
+        // let datas = query(ref(getDatabase(database), "/Commandes"), orderBy("totalPrice", "desc").startAt(21));
+        // const db = getDatabase();
+        // const recentPostsRef = query(ref(db, 'posts'), limitToLast(100));
+         */
     }
-   
+    
     
     useEffect(() => {
         getOrdersDatas()
@@ -110,7 +121,7 @@ function Orders() {
                                         </thead>
                                         <tbody className=''>
                                             {ordersDatas && ordersDatas !== "" ?
-                                            Object.values(ordersDatas).map((order,index) => (
+                                            Object.values(ordersDatas).reverse().map((order,index) => (
                                             <tr key={index} className="border-b dark:border-blue-300 hover:bg-blue-50 cursor-pointer">
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/order-details?id=${order.commandeId}`}>{index+1}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.commandeId}</Link></td>
@@ -148,7 +159,7 @@ function Orders() {
                                         </thead>
                                         <tbody className=''>
                                             {ordersDatas && ordersDatas !== "" ?
-                                            Object.values(ordersDatas).filter((item) => item.status === "En attente").map((order,index) => (
+                                            Object.values(ordersDatas).filter((item) => item.status === "En attente").reverse().map((order,index) => (
                                             <tr key={index} className="border-b dark:border-blue-300 hover:bg-blue-50 cursor-pointer">
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/order-details?id=${order.commandeId}`}>{index+1}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.commandeId}</Link></td>
@@ -219,7 +230,7 @@ function Orders() {
                                         </thead>
                                         <tbody>
                                         {ordersDatas && ordersDatas !== "" ?
-                                            Object.values(ordersDatas).filter((item) => item.status === "Réglée").map((order,index) => (
+                                            Object.values(ordersDatas).filter((item) => item.status === "Réglée").reverse().map((order,index) => (
                                             <tr key={index} className="border-b dark:border-blue-300 hover:bg-blue-50 cursor-pointer">
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/order-details?id=${order.commandeId}`}>{index+1}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.commandeId}</Link></td>
@@ -325,7 +336,7 @@ function Orders() {
                                         </thead>
                                         <tbody>
                                         {ordersDatas && ordersDatas !== "" ?
-                                            Object.values(ordersDatas).filter((item) => item.status === "Annulée").map((order,index) => (
+                                            Object.values(ordersDatas).filter((item) => item.status === "Annulée").reverse().map((order,index) => (
                                             <tr key={index} className="border-b dark:border-blue-300 hover:bg-blue-50 cursor-pointer">
                                                 {/* <Link component="td" to="/order-details">{order.commandeId}</Link> */}
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/order-details?id=${order.commandeId}`}>{index+1}</Link></td>
@@ -363,7 +374,7 @@ function Orders() {
                                         </thead>
                                         <tbody className=''>
                                             {ordersDatas && ordersDatas !== "" ?
-                                            Object.values(ordersDatas).filter((item) => item.status === "Livrée").map((order,index) => (
+                                            Object.values(ordersDatas).filter((item) => item.status === "Livrée").reverse().map((order,index) => (
                                             <tr key={index} className="border-b dark:border-blue-300 hover:bg-blue-50 cursor-pointer">
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/order-details?id=${order.commandeId}`}>{index+1}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.commandeId}</Link></td>
