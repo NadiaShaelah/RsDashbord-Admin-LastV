@@ -150,7 +150,8 @@ function Reservations() {
                                                 <td className="whitespace-nowrap px-6 py-4 text-blue-900 font-semibold"><Link to={`/reserv-details?id=${reserv.reservationId}`}>{reserv.reponseResto}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4 flex gap-4">
                                                     {/* <button onClick={() => ValidateReservation(reserv)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Valider</button> */}
-                                                    <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Valider</button>
+                                                    <button onClick={() => ValidateReservation(reserv)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Valider</button>
+                                                    {/* <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Valider</button>
                                                     <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
@@ -159,15 +160,16 @@ function Reservations() {
                                                                     <p className='text-lg'>Êtes-vous sûr de vouloir valider la réservation ?</p>
                                                                     <div className="flex gap-4">
                                                                         <button onClick={() => ValidateReservation(reserv)} className='bg-green-600 text-white font-semibold text-lg py-2 px-4 rounded-md'>Valider</button>
-                                                                        {/* <button onClick={() => CancelOrder(order)} className='bg-red-600 text-white font-semibold text-lg py-2 px-4 rounded-md'>Annuler</button> */}
+                                                                        a supprimer ---<button onClick={() => CancelOrder(order)} className='bg-red-600 text-white font-semibold text-lg py-2 px-4 rounded-md'>Annuler</button>
                                                                         <button  className='bg-red-600 text-white font-semibold text-lg py-2 px-4 rounded-md'>Retour</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUpValidation>
-                                                    <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
-                                                    <PopUp open={open} onClose={() => setOpen(false)}>
+                                                    </PopUpValidation> */}
+                                                    <button onClick={() => CancelReservation(reserv)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    {/* <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button> */}
+                                                    {/* <PopUp open={open} onClose={() => setOpen(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
                                                                 <div className="flex flex-col items-center gap-4">
@@ -180,7 +182,7 @@ function Reservations() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUp>
+                                                    </PopUp> */}
                                                 </td>
                                             </tr>
                                             )) : null }

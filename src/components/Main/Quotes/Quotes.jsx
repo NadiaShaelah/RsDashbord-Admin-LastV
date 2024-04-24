@@ -205,8 +205,9 @@ function Quotes() {
                                                 <td className="whitespace-nowrap px-6 py-4 flex gap-4">
                                                     {/* <button href="#" className='bg-blue-900 py-2 px-4 rounded-md text-white text-[1rem] font-semibold'>Régler</button>
                                                     <button href="#" className='bg-blue-900 py-2 px-4 rounded-md text-white text-[1rem] font-semibold'>Annuler</button> */}
-                                                    <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Régler</button>
-                                                    <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
+                                                    <button onClick={() => ReglerQuote(quote)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Régler</button>
+                                                    {/* <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Régler</button> */}
+                                                    {/* <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
                                                                 <div className="flex flex-col items-center gap-4">
@@ -219,8 +220,9 @@ function Quotes() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUpValidation>
-                                                    <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    </PopUpValidation> */}
+                                                    <button onClick={() => CancelQuote(quote)}  className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    {/* <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
                                                     <PopUp open={open} onClose={() => setOpen(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
@@ -234,7 +236,7 @@ function Quotes() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUp>
+                                                    </PopUp> */}
                                                 </td>
                                             </tr>
                                             )) : null }
@@ -277,8 +279,9 @@ function Quotes() {
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.total}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.status}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4 flex gap-4">
-                                                    <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>En agence</button>
-                                                    <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
+                                                    <button onClick={() => EnAgence(quote)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>En agence</button>
+                                                    {/* <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>En agence</button> */}
+                                                    {/* <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
                                                                 <div className="flex flex-col items-center gap-4">
@@ -291,9 +294,10 @@ function Quotes() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUpValidation>
-                                                    <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
-                                                    <PopUp open={open} onClose={() => setOpen(false)}>
+                                                    </PopUpValidation> */}
+                                                    <button onClick={() => CancelQuote(quote)}  className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    {/* <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button> */}
+                                                    {/* <PopUp open={open} onClose={() => setOpen(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
                                                                 <div className="flex flex-col items-center gap-4">
@@ -306,7 +310,7 @@ function Quotes() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUp>
+                                                    </PopUp> */}
                                                 </td>
                                             </tr>
                                             )) : null }
@@ -349,7 +353,8 @@ function Quotes() {
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.total}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.status}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4 flex gap-4">
-                                                    <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Expédier</button>
+                                                    <button onClick={() => Expedier(quote)}  className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Expédier</button>
+                                                    {/* <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Expédier</button>
                                                     <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
@@ -363,8 +368,9 @@ function Quotes() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUpValidation>
-                                                    <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    </PopUpValidation> */}
+                                                    <button onClick={() => CancelQuote(quote)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    {/* <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
                                                     <PopUp open={open} onClose={() => setOpen(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
@@ -378,7 +384,7 @@ function Quotes() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUp>
+                                                    </PopUp> */}
                                                 </td>
                                             </tr>
                                             )) : null }
@@ -421,7 +427,8 @@ function Quotes() {
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.total}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.status}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4 flex gap-4">
-                                                    <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Disponible</button>
+                                                    <button  onClick={() => Disponible(quote)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Disponible</button>
+                                                    {/* <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Disponible</button>
                                                     <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
@@ -435,8 +442,9 @@ function Quotes() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUpValidation>
-                                                    <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    </PopUpValidation> */}
+                                                    <button onClick={() => CancelQuote(quote)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    {/* <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
                                                     <PopUp open={open} onClose={() => setOpen(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
@@ -450,7 +458,7 @@ function Quotes() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUp>
+                                                    </PopUp> */}
                                                 </td>
                                             </tr>
                                             )) : null }
@@ -493,8 +501,9 @@ function Quotes() {
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.total}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/quote-details?id=${quote.devisId}`}>{quote.status}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4 flex gap-4">
-                                                <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Livrer</button>
-                                                    <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
+                                                <button onClick={() => Livrer(quote)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Livrer</button>
+                                                {/* <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Livrer</button> */}
+                                                    {/* <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
                                                                 <div className="flex flex-col items-center gap-4">
@@ -507,9 +516,10 @@ function Quotes() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUpValidation>
-                                                    <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
-                                                    <PopUp open={open} onClose={() => setOpen(false)}>
+                                                    </PopUpValidation> */}
+                                                    <button onClick={() => CancelQuote(quote)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    {/* <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button> */}
+                                                    {/* <PopUp open={open} onClose={() => setOpen(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
                                                                 <div className="flex flex-col items-center gap-4">
@@ -522,7 +532,7 @@ function Quotes() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUp>
+                                                    </PopUp> */}
                                                 </td>
                                             </tr>
                                             )) : null }

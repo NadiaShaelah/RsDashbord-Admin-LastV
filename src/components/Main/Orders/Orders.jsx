@@ -169,8 +169,9 @@ function Orders() {
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.status}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.modePaiement}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4 flex gap-4">
-                                                    <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Régler</button>
-                                                    <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
+                                                    <button onClick={() => ReglerAnOrder(order)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Régler</button>
+                                                    {/* <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Régler</button> */}
+                                                    {/* <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
                                                                 <div className="flex flex-col items-center gap-4">
@@ -178,15 +179,16 @@ function Orders() {
                                                                     <p className='text-lg'>Êtes-vous sûr de vouloir régler la commande ?</p>
                                                                     <div className="flex gap-4">
                                                                         <button onClick={() => ReglerAnOrder(order)} className='bg-green-600 text-white font-semibold text-lg py-2 px-4 rounded-md'>Régler</button>
-                                                                        {/* <button onClick={() => CancelOrder(order)} className='bg-red-600 text-white font-semibold text-lg py-2 px-4 rounded-md'>Annuler</button> */}
+                                                                        a supprimer --- <button onClick={() => CancelOrder(order)} className='bg-red-600 text-white font-semibold text-lg py-2 px-4 rounded-md'>Annuler</button>
                                                                         <button  className='bg-red-600 text-white font-semibold text-lg py-2 px-4 rounded-md'>Retour</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUpValidation>
-                                                    <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
-                                                    <PopUp open={open} onClose={() => setOpen(false)}>
+                                                    </PopUpValidation> */}
+                                                    <button onClick={() => CancelOrder(order)}  className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    {/* <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button> */}
+                                                    {/* <PopUp open={open} onClose={() => setOpen(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
                                                                 <div className="flex flex-col items-center gap-4">
@@ -199,7 +201,7 @@ function Orders() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUp>
+                                                    </PopUp> */}
                                                 </td>
                                             </tr>
                                             )) : null }
@@ -240,7 +242,8 @@ function Orders() {
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.status}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.modePaiement}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4 flex gap-4">
-                                                    <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Livrée</button>
+                                                    <button onClick={() => DeliverOrder(order)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Livrée</button>
+                                                    {/* <button onClick={()=> setOpenValidate(true)} className='bg-blue-900 text-white p-2 rounded-md font-semibold'>Livrée</button>
                                                     <PopUpValidation open={openValidate} onClose={() => setOpenValidate(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
@@ -254,8 +257,9 @@ function Orders() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUpValidation>
-                                                    <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    </PopUpValidation> */}
+                                                    <button onClick={() => CancelOrder(order)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
+                                                    {/* <button onClick={()=> setOpen(true)} className='bg-red-600 text-white p-2 rounded-md font-semibold'>Annuler</button>
                                                     <PopUp open={open} onClose={() => setOpen(false)}>
                                                         <div className="text-center w-full">
                                                             <div className="bg-white w-[400px] mx-auto rounded-md p-4">
@@ -269,7 +273,7 @@ function Orders() {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </PopUp>
+                                                    </PopUp> */}
                                                 </td>
                                             </tr>
                                             )) : null }
