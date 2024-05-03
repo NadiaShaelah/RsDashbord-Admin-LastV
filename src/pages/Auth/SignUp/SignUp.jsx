@@ -39,14 +39,14 @@ function SignUp() {
             passwordConfirm: passwordConfirm,
         }).then((test) => console.log("addedddd...")).catch((e) => console.log(e))
 
-        let userData = {
-            userName: name,
-            userEmail: email,
-            userPassword: password,
-            userPasswordConfirm: passwordConfirm
-        }; 
+        // let userData = {
+        //     userName: name,
+        //     userEmail: email,
+        //     userPassword: password,
+        //     userPasswordConfirm: passwordConfirm
+        // }; 
 
-        addNewUser(userData);
+        // addNewUser(userData);
         // setLoggedUser(userData);
         // setName(" ")
         // setEmail(" ")

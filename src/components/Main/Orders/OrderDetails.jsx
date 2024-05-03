@@ -54,7 +54,7 @@ function OrderDetails() {
     console.log('orderInfos ::: ', orderInfos);
 
     return(
-        <section className="order-details bg-green-100 h-screen py-10">
+        <section className="order-details bg-green-100 py-10">
             <div className="container mx-auto">
                 <div className="py-4 flex flex-col items-center">
                     <h1 className='flex gap-2'>
@@ -71,8 +71,9 @@ function OrderDetails() {
                                     <h1 className='text-xl underline font-semibold'>Adresse de livraison</h1>
                                     {/* {orderInfos?.cartlist?.map((product, i) => (  key={i}*/}
                                         <div className="flex flex-col gap-1">
+                                            <span className='capitalize'>{orderInfos?.nom}</span>
                                             <span>{orderInfos?.email}</span>
-                                            <span>{orderInfos?.lieu}</span>
+                                            <span>{orderInfos?.lieu || orderInfos?.ville}</span>
                                             <span>{orderInfos?.address}</span>
                                             <span>{orderInfos?.numero}</span>
                                         </div>
@@ -82,8 +83,9 @@ function OrderDetails() {
                                     <h1 className='text-xl underline font-semibold'>Adresse de facturation</h1>
                                     {/* {orderInfos?.cartlist?.map((product, i) => ( key={i}  */}
                                         <div className="flex flex-col gap-1">
+                                            <span className='capitalize'>{orderInfos?.nom}</span>
                                             <span>{orderInfos?.email}</span>
-                                            <span>{orderInfos?.lieu}</span>
+                                            <span>{orderInfos?.lieu || orderInfos?.ville}</span>
                                             <span>{orderInfos?.address}</span>
                                             <span>{orderInfos?.numero}</span>
                                         </div>
@@ -95,7 +97,7 @@ function OrderDetails() {
                                     <thead className="border-b font-medium dark:border-green-300">
                                         <tr>
                                             <th scope="col" className="px-6 py-4">Image</th>
-                                            <th scope="col" className="px-6 py-4">ProductID</th>
+                                            {/* <th scope="col" className="px-6 py-4">ProductID</th> */}
                                             <th scope="col" className="px-6 py-4">Nom du produit</th>
                                             <th scope="col" className="px-6 py-4">Date commande</th>
                                             {/* <th scope="col" className="px-6 py-4">Statut</th> */}
@@ -103,7 +105,7 @@ function OrderDetails() {
                                             <th scope="col" className="px-6 py-4">Etat du produit</th>
                                             <th scope="col" className="px-6 py-4">Client</th>
                                             <th scope="col" className="px-6 py-4">Boutique</th>
-                                            <th scope="col" className="px-6 py-4">Quantitée</th>
+                                            <th scope="col" className="px-6 py-4">Quantité</th>
                                             <th scope="col" className="px-6 py-4">Prix</th>
                                         </tr>
                                     </thead>
@@ -111,13 +113,13 @@ function OrderDetails() {
                                     <tbody>
                                         <tr className="border-b dark:border-green-300 hover:bg-green-50 cursor-pointer">
                                             <td className="whitespace-nowrap px-6 py-4"><img className='w-full h-20' src={product.orderImageUrl[0]} alt={product.orderName} /></td>
-                                            <td className="whitespace-nowrap px-6 py-4">{product.productId}</td>
+                                            {/* <td className="whitespace-nowrap px-6 py-4">{product.productId}</td> */}
                                             <td className="whitespace-nowrap px-6 py-4">{product.orderName}</td>
-                                            <td className="whitespace-nowrap px-6 py-4">{product.dateCommande}</td>
+                                            <td className="whitespace-nowrap px-6 py-4">{orderInfos.dateCommande}</td>
                                             {/* <td className="whitespace-nowrap px-6 py-4">{product.status}</td> */}
                                             {/* <td className="whitespace-nowrap px-6 py-4">{product.orderDescription}</td> */}
                                             <td className="whitespace-nowrap px-6 py-4 capitalize">{product.orderEtat}</td>
-                                            <td className="whitespace-nowrap px-6 py-4">{product.email}</td>
+                                            <td className="whitespace-nowrap px-6 py-4">{orderInfos.email}</td>
                                             <td className="whitespace-nowrap px-6 py-4">{product.orderOrganisation}</td>
                                             <td className="whitespace-nowrap px-6 py-4">{product.orderQte}</td>
                                             <td className="whitespace-nowrap px-6 py-4">{product.orderPrice}</td>

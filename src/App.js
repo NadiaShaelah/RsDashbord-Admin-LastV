@@ -13,7 +13,7 @@ function App() {
 
     const [loggedUser, setLoggedUser] = useLocalStorage('loggedUser', undefined);
     console.log(loggedUser);
-    if(currentList)
+    if(loggedUser)
 
         return <AppRouter />
 

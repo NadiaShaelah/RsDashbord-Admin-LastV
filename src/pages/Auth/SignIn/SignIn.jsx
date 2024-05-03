@@ -17,6 +17,7 @@ function SignIn() {
     const [password, setPassword] = useState()
     const [passwordConfirm, setPasswordConfirm] = useState()
     const [loggedUser, setLoggedUser] = useLocalStorage("loggedUser", undefined);
+    const [userExist, setUserExist] = useState(false)
 
     const handleSignIn = () => {
         setSignUp(false)
@@ -67,7 +68,7 @@ function SignIn() {
         setPassword(e.target.value)
     }
     
-    const connectUser = async (e) => {
+    const userLogin = async (e) => {
         e.preventDefault()
         
         const querySnapshot = await getDocs(collection(db, "DashboardUsers"));
@@ -75,11 +76,16 @@ function SignIn() {
             console.log(doc.data().email);
             // console.log("email :: ", email);
             if(email === doc.data().email) {
-                localStorage.setItem("userList", JSON.stringify(true));
-                console.log("YESSSSSSS !");
-            }
-            else {
-                localStorage.setItem("userList", JSON.stringify(false));
+                setUserExist(true)
+                let userData = {
+                    // userName: name,
+                    userEmail: email,
+                    userPassword: password,
+                    // userPasswordConfirm: passwordConfirm
+                }; 
+        
+                addNewUser(userData);
+                setLoggedUser(userData);
             }
            
         });
@@ -95,7 +101,7 @@ function SignIn() {
                         <button onClick={() => handleSignUp()} className={`${signUp ? '' : ''}w-full p-3 text-lg font-bold text-blue-900 bg-white`}>Inscription</button>
                     </div>
                     {/* {signIn && ( */}
-                        <form action="" className='flex flex-col gap-4' onSubmit={(e) => connectUser(e)}>
+                        <form action="" className='flex flex-col gap-4' onSubmit={(e) => userLogin(e)}>
                             <div className="bg-white border p-2 flex justify-between items-center gap-2">
                                 <input type="text" value={email} onChange={handleChangeEmail} placeholder='Entrez votre adresse email' className='w-full focus:outline-none bg-white border-none'/>
                                 <FontAwesomeIcon icon={faUser} className='text-blue-900'/>
@@ -130,6 +136,9 @@ function SignIn() {
                             <button className='w-full p-2 text-lg font-bold text-white bg-blue-900'>Inscription</button>
                         </form>
                     )} */}
+                    {userExist && (
+                        <DashboardPage/>
+                    )}
                 </div>
             </div>
         </section>
