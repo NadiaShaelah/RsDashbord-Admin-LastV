@@ -51,6 +51,8 @@ function OrderDetails() {
         }
     }
 
+    console.log('orderInfos ::: ', orderInfos);
+
     return(
         <section className="order-details bg-green-100 h-screen py-10">
             <div className="container mx-auto">
@@ -67,25 +69,25 @@ function OrderDetails() {
                             <div className="bg-white grid grid-cols-2 gap-4 rounded-md p-4">
                                 <div className="flex flex-col gap-3">
                                     <h1 className='text-xl underline font-semibold'>Adresse de livraison</h1>
-                                    {orderInfos?.cartlist?.map((product, i) => (
-                                        <div key={i} className="flex flex-col gap-1">
-                                            <span>{product.email}</span>
-                                            <span>{product.lieu}</span>
-                                            <span>{product.address}</span>
-                                            <span>{product.numero}</span>
+                                    {/* {orderInfos?.cartlist?.map((product, i) => (  key={i}*/}
+                                        <div className="flex flex-col gap-1">
+                                            <span>{orderInfos?.email}</span>
+                                            <span>{orderInfos?.lieu}</span>
+                                            <span>{orderInfos?.address}</span>
+                                            <span>{orderInfos?.numero}</span>
                                         </div>
-                                    ))}
+                                    {/* ))} */}
                                 </div>
                                 <div className="flex flex-col gap-3">
                                     <h1 className='text-xl underline font-semibold'>Adresse de facturation</h1>
-                                    {orderInfos?.cartlist?.map((product, i) => (
-                                        <div key={i} className="flex flex-col gap-1">
-                                            <span>{product.email}</span>
-                                            <span>{product.lieu}</span>
-                                            <span>{product.address}</span>
-                                            <span>{product.numero}</span>
+                                    {/* {orderInfos?.cartlist?.map((product, i) => ( key={i}  */}
+                                        <div className="flex flex-col gap-1">
+                                            <span>{orderInfos?.email}</span>
+                                            <span>{orderInfos?.lieu}</span>
+                                            <span>{orderInfos?.address}</span>
+                                            <span>{orderInfos?.numero}</span>
                                         </div>
-                                    ))}
+                                    {/* ))} */}
                                 </div>
                             </div>
                             <div className="bg-white flex justify-center rounded-md">

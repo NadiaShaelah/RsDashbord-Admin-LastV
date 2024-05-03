@@ -38,7 +38,7 @@ function SideBar() {
                         </li>
                         <li className='flex gap-2 items-center cursor-pointer transition duration-500 ease-in-out hover:text-blue-200 text-center'>
                             <FontAwesomeIcon className='lg:text-3xl xl:text-xl' icon={faSignOut}/>
-                            <span className='lg:hidden xl:flex text-lg'>Se deconnecter</span>
+                            <span className='lg:hidden xl:flex text-lg'><Link to={'/sign-in'}>Se deconnecter</Link></span>
                         </li>
                     </ul>
                 </div>

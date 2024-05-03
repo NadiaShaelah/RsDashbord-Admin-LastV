@@ -1,20 +1,23 @@
-import { Route, Routes } from "react-router-dom";
-import DashboardPage from "./pages/DashboardPage/DashboardPage";
-import OrderDetails from "./components/Main/Orders/OrderDetails";
-import ReservationDetails from "./components/Main/Reservations/ReservationDetails";
-import QuoteDetails from "./components/Main/Quotes/QuoteDetails"
+import { useState } from "react";
+import AppRouter from "./pages/App/AppRouter";
+import AuthRouter from "./pages/Auth/AuthRouter";
+import { useLocalStorage } from "usehooks-ts";
 
 function App() {
-    return (
-        <div className="App">
-            <Routes>
-                <Route path="/" element={<DashboardPage/>}/>
-                <Route path='/order-details' element={<OrderDetails/>} />
-                <Route path='/reserv-details' element={<ReservationDetails/>} />
-                <Route path='/quote-details' element={<QuoteDetails/>} />
-            </Routes>
-        </div>
-    );
+
+    // const [isAuthenticated, setIsAuthenticated] = useState(false)
+    // if(isAuthenticated)
+    
+    const stringData = localStorage.getItem("userList") || "[]";
+    let currentList = JSON.parse(stringData);
+
+    const [loggedUser, setLoggedUser] = useLocalStorage('loggedUser', undefined);
+    console.log(loggedUser);
+    if(currentList)
+
+        return <AppRouter />
+
+    return <AuthRouter />
 }
 
 export default App;

@@ -1,8 +1,8 @@
 import React from 'react'
-import NavBar from '../../components/NavBar/NavBar'
-import SideBar from '../../components/SideBar/SideBar'
-import Analytics from '../../components/Analytics/Analytics'
-import Main from '../../components/Main/Main'
+import NavBar from '../../../../src/components/NavBar/NavBar'
+import SideBar from '../../../../src/components/SideBar/SideBar'
+import Analytics from '../../../components/Analytics/Analytics'
+import Main from '../../../components/Main/Main'
 
 function DashboardPage() {
     return (
