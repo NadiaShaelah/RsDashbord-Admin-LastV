@@ -19,25 +19,40 @@ function App() {
     // const stringData = localStorage.getItem("userList") || "[]";
     // let currentList = JSON.parse(stringData);
 
-    // const [loggedUser, setLoggedUser] = useLocalStorage('loggedUser', undefined);
-    // console.log(loggedUser);
-    // if(!loggedUser)
+    const [loggedUser, setLoggedUser] = useLocalStorage('loggedUser', undefined);
+    console.log(loggedUser);
+    if(loggedUser)
 
-    //     return <AppRouter />
+        return <AppRouter />
 
-    // return <AuthRouter />
-    return(
-        <Routes>
-            <Route path="/" element={<DashboardPage/>}/>
-            <Route path='/order-details' element={<OrderDetails/>} />
-            <Route path='/reserv-details' element={<ReservationDetails/>} />
-            <Route path='/quote-details' element={<QuoteDetails/>} />
-            {/* <Route path='/*' element={<Navigate replace to="dashboard" />} /> */}
-            <Route path='/sign-in' element={<SignIn/>} />
-            <Route path='/sign-up' element={<SignUp/>}/>
-            {/* <Route path='/*' element={<Navigate replace to="sign-in"/>}/> */}
-        </Routes>
-    )
+    return <AuthRouter />
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    // return(
+    //     <Routes>
+    //         <Route path="/dashboard" element={<DashboardPage/>}/>
+    //         <Route path='/order-details' element={<OrderDetails/>} />
+    //         <Route path='/reserv-details' element={<ReservationDetails/>} />
+    //         <Route path='/quote-details' element={<QuoteDetails/>} />
+    //         {/* <Route path='/*' element={<Navigate replace to="dashboard" />} /> */}
+    //         {/* <Route path='/sign-in' element={<SignIn/>} /> */}
+    //         <Route path='/' element={<SignIn/>} />
+    //         <Route path='/sign-up' element={<SignUp/>}/>
+    //         <Route path='/*' element={<Navigate replace to="/"/>}/>
+    //     </Routes>
+    // )
 }
 
 export default App;

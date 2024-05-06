@@ -19,6 +19,9 @@ function SignIn() {
     const [loggedUser, setLoggedUser] = useLocalStorage("loggedUser", undefined);
     const [userExist, setUserExist] = useState(false)
 
+    const [message, setMessage] = useState("")
+
+
     const handleSignIn = () => {
         setSignUp(false)
         setSignIn(true)
@@ -75,17 +78,28 @@ function SignIn() {
         querySnapshot.forEach((doc) => {
             console.log(doc.data().email);
             // console.log("email :: ", email);
-            if(email === doc.data().email) {
-                setUserExist(true)
-                let userData = {
-                    // userName: name,
-                    userEmail: email,
-                    userPassword: password,
-                    // userPasswordConfirm: passwordConfirm
-                }; 
+            if(email === doc.data().email && password === doc.data().password) {
+                setLoggedUser(true)
+                setMessage(" ")
+
+                // console.log('trueee :', email);
+                // console.log('view :', doc.data().email);
+                // let userData = {
+                //     // userName: name,
+                //     userEmail: email,
+                //     userPassword: password,
+                //     // userPasswordConfirm: passwordConfirm
+                // }; 
         
-                addNewUser(userData);
-                setLoggedUser(userData);
+                // addNewUser(userData);
+                // setLoggedUser(userData);
+            }
+            else {
+                const interval = setInterval(() => {
+                        setMessage("Compte inexistant")
+                      console.log('This will run every second!');
+                    }, 1000);
+                    return () => clearInterval(interval);
             }
            
         });
@@ -100,6 +114,7 @@ function SignIn() {
                         <button onClick={() => handleSignIn()} className={`${signIn ? '' : ''}w-full p-3 text-lg font-bold text-white bg-blue-900`}>Connexion</button>
                         <button onClick={() => handleSignUp()} className={`${signUp ? '' : ''}w-full p-3 text-lg font-bold text-blue-900 bg-white`}>Inscription</button>
                     </div>
+                    <p className='text-red-500'>{message}</p>
                     {/* {signIn && ( */}
                         <form action="" className='flex flex-col gap-4' onSubmit={(e) => userLogin(e)}>
                             <div className="bg-white border p-2 flex justify-between items-center gap-2">
@@ -111,10 +126,10 @@ function SignIn() {
                                 <FontAwesomeIcon icon={faLock} className='text-blue-900'/>
                             </div>
                             <small className='text-red-300 text-sm -mt-2'>Mot de passe oublié ?</small>
-                            <Link to={"/dashboard"}><button className='w-full p-2 text-lg font-bold text-white bg-blue-900'>Connexion</button></Link>
+                            <button className='w-full p-2 text-lg font-bold text-white bg-blue-900'>Connexion</button>
                             <small className='text-sm'>Vous n'avez pas de compte ? <Link to={'/sign-up'} className=' font-semibold underline text-base text-red-300'>Créez un compte ici</Link></small>
                         </form>
-                    {/* )} */}
+                    {/* )} /dashboard*/}
                     {/* {signUp && (
                         <form action="" className='flex flex-col gap-8' onSubmit={(e) => addUser(e)}>
                             <div className="bg-white border p-2 flex justify-between items-center gap-2">

@@ -1,11 +1,28 @@
 import { faGear, faHomeUser, faMessage, faSignOut, faTasks, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import chaplogo from '../images/app-chap-logo.png'
 import { Link } from 'react-router-dom'
+import { useLocalStorage } from 'usehooks-ts'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../../firebase-config'
 
 function SideBar() {
+    const [loggedUser, setLoggedUser] = useLocalStorage('loggedUser', undefined);
+    const [userConnected, setUserConnected] = useState()
+
+    useEffect(() => {
+        const user = async () => {
+            const querySnapshot = await getDocs(collection(db, "DashboardUsers"));
+                querySnapshot.forEach((doc) => {
+                    // console.log(doc.data().name);
+                setUserConnected(doc.data().name)
+            })
+        }
+        user()
+    }, [])
+    
     return (
         <section className='side-bar h-full bg-blue-950 text-white'>
             <div className="fixed top-0 z-50">
@@ -38,7 +55,8 @@ function SideBar() {
                         </li>
                         <li className='flex gap-2 items-center cursor-pointer transition duration-500 ease-in-out hover:text-blue-200 text-center'>
                             <FontAwesomeIcon className='lg:text-3xl xl:text-xl' icon={faSignOut}/>
-                            <span className='lg:hidden xl:flex text-lg'><Link to={'/sign-in'}>Se deconnecter</Link></span>
+                            <button onClick={() => setLoggedUser(false)} className='lg:hidden xl:flex text-lg'>Se deconnecter</button>
+                            {/* <span className='lg:hidden xl:flex text-lg'><Link to={'/sign-in'}>Se deconnecter</Link></span> */}
                         </li>
                     </ul>
                 </div>
