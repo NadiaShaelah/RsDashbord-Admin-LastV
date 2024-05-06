@@ -74,7 +74,7 @@ function OrderDetails() {
                                             <span className='capitalize'>{orderInfos?.nom}</span>
                                             <span>{orderInfos?.email}</span>
                                             <span>{orderInfos?.lieu || orderInfos?.ville}</span>
-                                            <span>{orderInfos?.address}</span>
+                                            <span>{orderInfos?.address || orderInfos?.adresseLivraison}</span>
                                             <span>{orderInfos?.numero}</span>
                                         </div>
                                     {/* ))} */}
@@ -86,7 +86,7 @@ function OrderDetails() {
                                             <span className='capitalize'>{orderInfos?.nom}</span>
                                             <span>{orderInfos?.email}</span>
                                             <span>{orderInfos?.lieu || orderInfos?.ville}</span>
-                                            <span>{orderInfos?.address}</span>
+                                            <span>{orderInfos?.address || orderInfos?.adresseLivraison}</span>
                                             <span>{orderInfos?.numero}</span>
                                         </div>
                                     {/* ))} */}
