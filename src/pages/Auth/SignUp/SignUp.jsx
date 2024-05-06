@@ -13,9 +13,9 @@ function SignUp() {
     const [signUp, setSignUp] = useState(false)
     
     const [name, setName] = useState("")
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
-    const [passwordConfirm, setPasswordConfirm] = useState()
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [passwordConfirm, setPasswordConfirm] = useState("")
     const [loggedUser, setLoggedUser] = useLocalStorage("loggedUser", undefined);
 
 
@@ -48,10 +48,10 @@ function SignUp() {
 
         // addNewUser(userData);
         // setLoggedUser(userData);
-        // setName(" ")
-        // setEmail(" ")
-        // setPassword(" ")
-        // setPasswordConfirm(" ")
+        setName(" ")
+        setEmail(" ")
+        setPassword(" ")
+        setPasswordConfirm(" ")
     }
     
 
