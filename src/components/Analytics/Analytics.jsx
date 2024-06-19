@@ -1,6 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+// import runReport from '../../pages/Api/runReport'
+// const { google } = require('googleapis');
+// const key = require('./service-account-key.json'); // Remplacez par le chemin vers vos clés JSON
+ 
 
 function Analytics() {
+
+    const data = () => {
+        console.log("yess");
+        fetch('../../pages/Api/runReport.js')
+        .then(response => console.log(response.json()))
+        // .then(data => console.log(data))
+        .catch(error => console.error(error));
+        // console.log(resp)
+    }
+
+    useEffect(() => {
+        //   runReport()
+        data()
+    
+    }, [])
+
     return (
         <aside className='py-4 px-4'>
             <div className="py-10 px-6 flex flex-col gap-8 bg-white rounded-md">
@@ -19,3 +39,51 @@ function Analytics() {
 }
 
 export default Analytics
+    // useEffect(() => {
+    //     const jwtClient = new google.auth.JWT(
+    //         key.client_email,
+    //         null,
+    //         key.private_key,
+    //         ['https://www.googleapis.com/auth/analytics.readonly']
+    //     );
+           
+    //     jwtClient.authorize((err, tokens) => {
+    //         if (err) {
+    //             console.error(err);
+    //             return;
+    //         }
+         
+    //         const analyticsreporting = google.analyticsreporting({
+    //             version: 'v4',
+    //             auth: jwtClient,
+    //         });
+         
+    //         analyticsreporting.reports.batchGet({
+    //             requestBody: {
+    //                 reportRequests: [
+    //                     {
+    //                     viewId: 'G-RFSVQTGJ87',
+    //                     dateRanges: [
+    //                         {
+    //                         startDate: 'YYYY-MM-DD',
+    //                         endDate: 'YYYY-MM-DD',
+    //                         },
+    //                     ],
+    //                     metrics: [
+    //                         {
+    //                         expression: 'ga:sessions',
+    //                         },
+    //                     ],
+    //                     },
+    //                 ],
+    //             },
+    //         }, (err, result) => {
+    //                 if (err) {
+    //                 console.error(err);
+    //                 return;
+    //                 }
+    //             console.log('Response:', JSON.stringify(result.data));
+    //         });
+    //     });
+    // }, [])
+    

@@ -92,11 +92,11 @@ function SignIn() {
                 // }; 
         
                 // addNewUser(userData);
-                // setLoggedUser(userData);
+                // setLoggedUser(userData); Comment intégrer des outils de statistiques dans des applications en React
             }
             else {
                 const interval = setInterval(() => {
-                        setMessage("Compte inexistant")
+                        setMessage("Compte inexistant, veuillez renseigner tous les champs !")
                       console.log('This will run every second!');
                     }, 1000);
                     return () => clearInterval(interval);
@@ -114,7 +114,7 @@ function SignIn() {
                         <button onClick={() => handleSignIn()} className={`${signIn ? '' : ''}w-full p-3 text-lg font-bold text-white bg-blue-900`}>Connexion</button>
                         <button onClick={() => handleSignUp()} className={`${signUp ? '' : ''}w-full p-3 text-lg font-bold text-blue-900 bg-white`}>Inscription</button>
                     </div>
-                    <p className='text-red-500'>{message}</p>
+                    <p className='text-red-500 text-center'>{message}</p>
                     {/* {signIn && ( */}
                         <form action="" className='flex flex-col gap-4' onSubmit={(e) => userLogin(e)}>
                             <div className="bg-white border p-2 flex justify-between items-center gap-2">
@@ -160,4 +160,4 @@ function SignIn() {
     )
 }
 
-export default SignIn
+export default SignIn;

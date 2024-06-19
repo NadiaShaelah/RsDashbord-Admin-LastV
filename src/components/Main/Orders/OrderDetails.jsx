@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { database } from '../../../firebase-config'
 import { getDatabase, onValue, ref, update } from "firebase/database";
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -229,6 +231,12 @@ function OrderDetails() {
                         </div>
                     </div>
                 </div> */}
+                <div className="py-10 ">
+                    <Link to={"/"} className='italic flex gap-4 items-center p-2'>
+                        <FontAwesomeIcon icon={faArrowLeft}/>
+                        <span className='font-bold'>Retour</span>
+                    </Link>
+                </div>
             </div>
         </section>
     )

@@ -11,6 +11,8 @@ import DashboardPage from "./pages/App/DashboardPage/DashboardPage";
 import OrderDetails from "./components/Main/Orders/OrderDetails";
 import ReservationDetails from "./components/Main/Reservations/ReservationDetails";
 import QuoteDetails from "./components/Main/Quotes/QuoteDetails";
+
+
 function App() {
 
     // const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -26,18 +28,6 @@ function App() {
         return <AppRouter />
 
     return <AuthRouter />
-
-
-
-
-
-
-
-
-
-
-
-
 
     
     // return(

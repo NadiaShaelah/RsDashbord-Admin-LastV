@@ -13,6 +13,8 @@ function AppRouter() {
             <Route path='/reserv-details' element={<ReservationDetails/>} />
             <Route path='/quote-details' element={<QuoteDetails/>} />
             <Route path='/*' element={<Navigate replace to="dashboard" />} />
+            <Route path='/api' element={<run />} />
+
         </Routes>
     )
 }
