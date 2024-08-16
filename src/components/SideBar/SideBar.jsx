@@ -1,4 +1,4 @@
-import { faGear, faHomeUser, faMessage, faSignOut, faTasks, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faGear, faHomeUser, faMessage, faSignOut, faTasks, faUser, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 
@@ -40,9 +40,9 @@ function SideBar() {
                                 <FontAwesomeIcon className='lg:text-3xl xl:text-xl' icon={faUser}/>
                                 <span className='lg:hidden xl:flex text-lg'>Admin</span>
                             </Link>
-                            <Link className='flex gap-2 items-center transition duration-500 ease-in-out hover:text-blue-200 text-center'>
-                                <FontAwesomeIcon className='lg:text-3xl xl:text-xl' icon={faMessage}/>
-                                <span className='lg:hidden xl:flex text-lg'>Messages</span>
+                            <Link to={"/users"} className='flex gap-2 items-center transition duration-500 ease-in-out hover:text-blue-200 text-center'>
+                                <FontAwesomeIcon className='lg:text-3xl xl:text-xl' icon={faUsers}/>
+                                <span className='lg:hidden xl:flex text-lg'>Utilisateurs</span>
                             </Link>
                             <Link className='flex gap-2 items-center transition duration-500 ease-in-out hover:text-blue-200 text-center'>
                                 <FontAwesomeIcon className='lg:text-3xl xl:text-xl' icon={faTasks}/>

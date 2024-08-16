@@ -4,6 +4,8 @@ import OrderDetails from '../../components/Main/Orders/OrderDetails'
 import ReservationDetails from '../../components/Main/Reservations/ReservationDetails'
 import QuoteDetails from '../../components/Main/Quotes/QuoteDetails'
 import DashboardPage from './DashboardPage/DashboardPage'
+import Users from './Users/Users'
+import UserDetails from './Users/UserDetails'
 
 function AppRouter() {
     return (
@@ -14,7 +16,8 @@ function AppRouter() {
             <Route path='/quote-details' element={<QuoteDetails/>} />
             <Route path='/*' element={<Navigate replace to="dashboard" />} />
             <Route path='/api' element={<run />} />
-
+            <Route path='/users' element={<Users/>} />
+            <Route path='/user-details' element={<UserDetails/>} />
         </Routes>
     )
 }

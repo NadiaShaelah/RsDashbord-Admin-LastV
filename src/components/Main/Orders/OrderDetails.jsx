@@ -73,11 +73,14 @@ function OrderDetails() {
                                     <h1 className='text-xl underline font-semibold'>Adresse de livraison</h1>
                                     {/* {orderInfos?.cartlist?.map((product, i) => (  key={i}*/}
                                         <div className="flex flex-col gap-1">
+                                            <span className='capitalize'><strong>Ville :</strong> {orderInfos?.ville}</span>
+                                            <span className='capitalize'><strong>Client :</strong> {orderInfos?.receveur}</span>
                                             <span className='capitalize'>{orderInfos?.nom}</span>
-                                            <span>{orderInfos?.email}</span>
-                                            <span>{orderInfos?.lieu || orderInfos?.ville}</span>
-                                            <span>{orderInfos?.address || orderInfos?.adresseLivraison}</span>
-                                            <span>{orderInfos?.numero}</span>
+                                            <span><strong>Email :</strong> {orderInfos?.email}</span>
+                                            <span className='capitalize'><strong>Lieu de livraison :</strong> {orderInfos?.lieu}</span>
+                                            <span className='capitalize'><strong>Adresse de livraison :</strong> {orderInfos?.adresseLivraison}</span>
+                                            <span className='capitalize'><strong>Autre adresse :</strong> {orderInfos?.address}</span>
+                                            <span><strong>Téléphone : </strong>{orderInfos?.numero}</span>
                                         </div>
                                     {/* ))} */}
                                 </div>
@@ -85,11 +88,14 @@ function OrderDetails() {
                                     <h1 className='text-xl underline font-semibold'>Adresse de facturation</h1>
                                     {/* {orderInfos?.cartlist?.map((product, i) => ( key={i}  */}
                                         <div className="flex flex-col gap-1">
+                                            <span className='capitalize'><strong>Ville : </strong>{orderInfos?.ville}</span>
+                                            <span className='capitalize'><strong>Client : </strong>{orderInfos?.receveur}</span>
                                             <span className='capitalize'>{orderInfos?.nom}</span>
-                                            <span>{orderInfos?.email}</span>
-                                            <span>{orderInfos?.lieu || orderInfos?.ville}</span>
-                                            <span>{orderInfos?.address || orderInfos?.adresseLivraison}</span>
-                                            <span>{orderInfos?.numero}</span>
+                                            <span><strong>Email : </strong>{orderInfos?.email}</span>
+                                            <span className='capitalize'><strong>Lieu de livraison : </strong>{orderInfos?.lieu}</span>
+                                            <span className='capitalize'><strong>Adresse de livraison : </strong>{orderInfos?.address}</span>
+                                            <span className='capitalize'><strong>Autre adresse : </strong>{orderInfos?.adresseLivraison}</span>
+                                            <span><strong>Téléphone : </strong>{orderInfos?.numero}</span>
                                         </div>
                                     {/* ))} */}
                                 </div>
@@ -102,6 +108,7 @@ function OrderDetails() {
                                             {/* <th scope="col" className="px-6 py-4">ProductID</th> */}
                                             <th scope="col" className="px-6 py-4">Nom du produit</th>
                                             <th scope="col" className="px-6 py-4">Date commande</th>
+                                            <th scope="col" className="px-6 py-4">Heure commande</th>
                                             {/* <th scope="col" className="px-6 py-4">Statut</th> */}
                                             {/* <th scope="col" className="px-6 py-4">Description</th> */}
                                             <th scope="col" className="px-6 py-4">Etat du produit</th>
@@ -114,10 +121,11 @@ function OrderDetails() {
                                     {orderInfos?.cartlist?.map((product, i) => (
                                     <tbody>
                                         <tr className="border-b dark:border-green-300 hover:bg-green-50 cursor-pointer">
-                                            <td className="whitespace-nowrap px-6 py-4"><img className='w-full h-20' src={product.orderImageUrl[0]} alt={product.orderName} /></td>
+                                            <td className="whitespace-nowrap px-6 py-4"><img className='w-20 h-20 object-cover' src={product.orderImageUrl[0]} alt={product.orderName} /></td>
                                             {/* <td className="whitespace-nowrap px-6 py-4">{product.productId}</td> */}
                                             <td className="whitespace-nowrap px-6 py-4">{product.orderName}</td>
                                             <td className="whitespace-nowrap px-6 py-4">{orderInfos.dateCommande}</td>
+                                            <td className="whitespace-nowrap px-6 py-4">{orderInfos?.heureCommande}</td>
                                             {/* <td className="whitespace-nowrap px-6 py-4">{product.status}</td> */}
                                             {/* <td className="whitespace-nowrap px-6 py-4">{product.orderDescription}</td> */}
                                             <td className="whitespace-nowrap px-6 py-4 capitalize">{product.orderEtat}</td>
@@ -139,6 +147,7 @@ function OrderDetails() {
                                     </div>
                                 ))}
                             </div>
+                            <h2 className='text-3xl font-bold'>Total : </h2>
                         </div>
                     </div>
                 </div>

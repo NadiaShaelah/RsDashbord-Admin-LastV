@@ -34,7 +34,7 @@ function Quotes() {
     const ReglerQuote = (devis) => {
         console.log("devis ::: ", devis);
         if(devis.devisId) {
-            if(devis.modePaiement === "Espèce") {
+            if(devis.modePaiement === "Espèce" || devis.modePaiement === "Carte stripe") {
                 try {
                     update(ref(getDatabase(database), `/DevisPerso/${devis.devisId}`), {
                         status: "Réglé",
