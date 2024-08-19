@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from '../../../firebase-config';
 import { database } from '../../../firebase-config'
 import { getDatabase, onValue, ref, orderByChild } from "firebase/database";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 function UserDetails() {
     const [queryParameters] = useSearchParams()
@@ -64,6 +66,7 @@ function UserDetails() {
 
     return (
         <div className="relative overflow-x-auto py-20 flex flex-col gap-4 px-4 lg:px-0">
+            <Link className='text-3xl px-4 lg:px-0' to={"/users"}><FontAwesomeIcon icon={faArrowLeft}/></Link>
             <div className="container mx-auto flex flex-col gap-4">
                 <h1 className='text-2xl text-center capitalize'>{userData?.name}.</h1>
                 <div className="border p-4 flex items-center gap-4">
