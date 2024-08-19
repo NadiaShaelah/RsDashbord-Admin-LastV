@@ -59,16 +59,16 @@ function OrderDetails() {
         <section className="order-details bg-green-100 py-10">
             <div className="container mx-auto">
                 <div className="py-4 flex flex-col items-center">
-                    <h1 className='flex gap-2'>
-                        <span className='mt-2'>Reférence commande : </span>
+                    <h1 className='flex flex-col lg:flex-row gap-2'>
+                        <span className='mt-2 text-center lg:text-start'>Reférence commande : </span>
                         <strong className='text-3xl font-semibold'>{orderInfos?.commandeId}.</strong>
                     </h1>
                     <small className=''>{orderInfos?.cartlist?.length} produits</small>
                 </div>
                 <div className="container mx-auto">
-                    <div className="grid grid-cols-12 bg-green-50">
-                        <div className="flex flex-col gap-4 col-span-12">
-                            <div className="bg-white grid grid-cols-2 gap-4 rounded-md p-4">
+                    <div className="grid grid-cols-12">
+                        <div className="flex flex-col gap-4 col-span-12 px-4 lg:px-0">
+                            <div className="bg-white grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-4 rounded-md p-4">
                                 <div className="flex flex-col gap-3">
                                     <h1 className='text-xl underline font-semibold'>Adresse de livraison</h1>
                                     {/* {orderInfos?.cartlist?.map((product, i) => (  key={i}*/}
@@ -100,17 +100,17 @@ function OrderDetails() {
                                     {/* ))} */}
                                 </div>
                             </div>
-                            <div className="bg-white flex justify-center rounded-md">
+                            {/* <div className="bg-white flex justify-center rounded-md">
                                 <table className='mt-6 '>
                                     <thead className="border-b font-medium dark:border-green-300">
                                         <tr>
                                             <th scope="col" className="px-6 py-4">Image</th>
-                                            {/* <th scope="col" className="px-6 py-4">ProductID</th> */}
+                                            <th scope="col" className="px-6 py-4">ProductID</th>
                                             <th scope="col" className="px-6 py-4">Nom du produit</th>
                                             <th scope="col" className="px-6 py-4">Date commande</th>
                                             <th scope="col" className="px-6 py-4">Heure commande</th>
-                                            {/* <th scope="col" className="px-6 py-4">Statut</th> */}
-                                            {/* <th scope="col" className="px-6 py-4">Description</th> */}
+                                            <th scope="col" className="px-6 py-4">Statut</th>
+                                            <th scope="col" className="px-6 py-4">Description</th>
                                             <th scope="col" className="px-6 py-4">Etat du produit</th>
                                             <th scope="col" className="px-6 py-4">Client</th>
                                             <th scope="col" className="px-6 py-4">Boutique</th>
@@ -122,12 +122,12 @@ function OrderDetails() {
                                     <tbody>
                                         <tr className="border-b dark:border-green-300 hover:bg-green-50 cursor-pointer">
                                             <td className="whitespace-nowrap px-6 py-4"><img className='w-20 h-20 object-cover' src={product.orderImageUrl[0]} alt={product.orderName} /></td>
-                                            {/* <td className="whitespace-nowrap px-6 py-4">{product.productId}</td> */}
+                                            <td className="whitespace-nowrap px-6 py-4">{product.productId}</td>
                                             <td className="whitespace-nowrap px-6 py-4">{product.orderName}</td>
                                             <td className="whitespace-nowrap px-6 py-4">{orderInfos.dateCommande}</td>
                                             <td className="whitespace-nowrap px-6 py-4">{orderInfos?.heureCommande}</td>
-                                            {/* <td className="whitespace-nowrap px-6 py-4">{product.status}</td> */}
-                                            {/* <td className="whitespace-nowrap px-6 py-4">{product.orderDescription}</td> */}
+                                            <td className="whitespace-nowrap px-6 py-4">{product.status}</td>
+                                            <td className="whitespace-nowrap px-6 py-4">{product.orderDescription}</td>
                                             <td className="whitespace-nowrap px-6 py-4 capitalize">{product.orderEtat}</td>
                                             <td className="whitespace-nowrap px-6 py-4">{orderInfos.email}</td>
                                             <td className="whitespace-nowrap px-6 py-4">{product.orderOrganisation}</td>
@@ -137,6 +137,47 @@ function OrderDetails() {
                                     </tbody>
                                     ))}
                                 </table>
+                            </div> */}
+                            <div className="bg-white flex flex-col overflow-x-auto">
+                                <div className="sm:-mx-6 lg:-mx-8">
+                                    <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                                        <div className="overflow-x-auto">
+                                            <table className="min-w-full text-start text-sm font-light text-surface">
+                                                <thead
+                                                    className="border-b border-neutral-200 font-medium dark:border-white/10">
+                                                    <tr>
+                                                    <th scope="col" className="px-6 py-4">#</th>
+                                                    <th scope="col" className="px-6 py-4">Image</th>
+                                                    <th scope="col" className="px-6 py-4">Nom du produit</th>
+                                                    <th scope="col" className="px-6 py-4">Date commande</th>
+                                                    <th scope="col" className="px-6 py-4">Heure commande</th>
+                                                    <th scope="col" className="px-6 py-4">Etat du produit</th>
+                                                    <th scope="col" className="px-6 py-4">Client</th>
+                                                    <th scope="col" className="px-6 py-4">Boutique</th>
+                                                    <th scope="col" className="px-6 py-4">Quantité</th>
+                                                    <th scope="col" className="px-6 py-4">Prix</th>
+                                                    </tr>
+                                                </thead>
+                                                {orderInfos?.cartlist?.map((product, i) => (
+                                                    <tbody className='text-gray-900'>
+                                                        <tr className="border-b border-neutral-200 dark:border-white/10">
+                                                        <td className="whitespace-nowrap px-6 py-4 font-medium">{i+1}</td>
+                                                        <td className="whitespace-nowrap px-6 py-4"><img className='w-20 h-20 object-cover' src={product.orderImageUrl[0]} alt={product.orderName} /></td>
+                                                        <td className="whitespace-nowrap px-6 py-4">{product.orderName}</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">{orderInfos.dateCommande}</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">{orderInfos?.heureCommande}</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">{product.orderEtat}</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">{orderInfos.email}</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">{product.orderOrganisation}</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">{product.orderQte}</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">{product.orderPrice}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                ))}
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div className="bg-white rounded-md flex flex-col gap-4 p-4">
                                 {orderInfos?.cartlist?.map((product, i) => (
