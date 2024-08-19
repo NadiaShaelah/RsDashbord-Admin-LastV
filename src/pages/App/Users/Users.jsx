@@ -36,13 +36,13 @@ function Users() {
                 <section className="users w-full">
                     <div className="max-w-[1600px] mx-auto flex flex-col gap-10 py-10">
                         <h1 className='text-3xl font-bold text-center'>Bienvenue à la session users, pour plus d'informations sur nos utilisateurs.</h1>
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 px-4 lg:px-0">
                             <Link className="bg-cyan-600 p-4 text-sm uppercase text-center text-white font-semibold hover:scale-105">Nouveaux comptes</Link>
                             <Link className="bg-cyan-600 p-4 text-sm uppercase text-center text-white font-semibold hover:scale-105">Achat, web / mobile ?</Link>
                             <Link className="bg-cyan-600 p-4 text-sm uppercase text-center text-white font-semibold hover:scale-105">Acceder aux users</Link>
                             <Link className="bg-cyan-600 p-4 text-sm uppercase text-center text-white font-semibold hover:scale-105">Créer magasin</Link>
                         </div>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                             <div className="flex flex-col gap-6 p-10">
                                 <h2 className='text-xl font-semibold'>Liste des utilisateurs ou comptes crées depuis le web</h2>
                                 {Object.values(usersData).reverse().map((d, i) => {

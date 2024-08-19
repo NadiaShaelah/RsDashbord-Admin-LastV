@@ -63,7 +63,7 @@ function UserDetails() {
     }, [])
 
     return (
-        <div className="relative overflow-x-auto py-20 flex flex-col gap-4">
+        <div className="relative overflow-x-auto py-20 flex flex-col gap-4 px-4 lg:px-0">
             <div className="container mx-auto flex flex-col gap-4">
                 <h1 className='text-2xl text-center capitalize'>{userData?.name}.</h1>
                 <div className="border p-4 flex items-center gap-4">
@@ -96,7 +96,7 @@ function UserDetails() {
                 <ul className='flex flex-col gap-4 p-4'>
                     <li className='text-center'>Id produit : <strong>{ordersDatas?.currentUID}</strong></li>
                     <li className='font-semibold'>{ordersDatas?.orderName}</li>
-                    <li>{ordersDatas?.orderDescription}</li>
+                    <li className='capitalize'>{ordersDatas?.orderDescription}</li>
                     <li>De chez <strong>{ordersDatas?.orderOrganisation}</strong></li>
                     <li>Prix : <strong>{ordersDatas?.orderPrice} €</strong></li>
                     <li>Quantitée : <strong>{ordersDatas?.orderQte}</strong></li>

@@ -11,12 +11,15 @@ function OrderDetails() {
     
     const [orderInfos, setOrderInfos] = useState()
     const [queryParameters] = useSearchParams()
+    const [totalPrice, setTotalPrice] = useState()
 
 
     const OrderInfosFunc = () => {
         const orderDatasDetails = ref(getDatabase(database), `/Commandes/${queryParameters.get("id")}`)
         onValue(orderDatasDetails, snapshort => {
             setOrderInfos(snapshort.val())
+            console.log("snapshort.val() ::: ", snapshort.val().totalPrice);
+            setTotalPrice(snapshort.val().totalPrice)
         })
     }
     
@@ -61,7 +64,7 @@ function OrderDetails() {
                 <div className="py-4 flex flex-col items-center">
                     <h1 className='flex flex-col lg:flex-row gap-2'>
                         <span className='mt-2 text-center lg:text-start'>Reférence commande : </span>
-                        <strong className='text-3xl font-semibold'>{orderInfos?.commandeId}.</strong>
+                        <strong className='text-xl lg:text-3xl font-semibold'>{orderInfos?.commandeId}.</strong>
                     </h1>
                     <small className=''>{orderInfos?.cartlist?.length} produits</small>
                 </div>
@@ -188,7 +191,7 @@ function OrderDetails() {
                                     </div>
                                 ))}
                             </div>
-                            <h2 className='text-3xl font-bold'>Total : </h2>
+                            <h2 className='text-3xl font-bold'>Total : {totalPrice}</h2>
                         </div>
                     </div>
                 </div>
