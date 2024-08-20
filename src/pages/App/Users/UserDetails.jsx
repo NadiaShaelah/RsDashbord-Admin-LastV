@@ -66,8 +66,8 @@ function UserDetails() {
 
     return (
         <div className="relative overflow-x-auto py-20 flex flex-col gap-4 px-4 lg:px-0">
-            <Link className='text-3xl px-4 lg:px-0' to={"/users"}><FontAwesomeIcon icon={faArrowLeft}/></Link>
             <div className="container mx-auto flex flex-col gap-4">
+                <Link className='text-3xl px-4 lg:px-0' to={"/users"}><FontAwesomeIcon icon={faArrowLeft}/></Link>
                 <h1 className='text-2xl text-center capitalize'>{userData?.name}.</h1>
                 <div className="border p-4 flex items-center gap-4">
                     <strong>Nom et prénom(s) : </strong>

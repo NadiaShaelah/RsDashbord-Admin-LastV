@@ -182,6 +182,7 @@ function OrderDetails() {
                                     </div>
                                 </div>
                             </div>
+                            <h2 className='text-3xl font-bold'>Total : {totalPrice}</h2>
                             <div className="bg-white rounded-md flex flex-col gap-4 p-4">
                                 {orderInfos?.cartlist?.map((product, i) => (
                                     <div className="flex flex-col gap-2">
@@ -191,7 +192,6 @@ function OrderDetails() {
                                     </div>
                                 ))}
                             </div>
-                            <h2 className='text-3xl font-bold'>Total : {totalPrice}</h2>
                         </div>
                     </div>
                 </div>

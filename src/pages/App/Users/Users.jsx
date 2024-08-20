@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from '../../../firebase-config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -12,25 +12,20 @@ function Users() {
 
     useEffect(() => {
         const getUsersDatas = async () => {
-
             const usersss = collection(db, '/Utilisateurs');
-            console.log("usersss  ::: ", usersss);
-            const q = query(usersss);
-            console.log("qqq ::: ", q);
-
+            const q = query(usersss, orderBy("createdAt", "desc"));
+    
             const querySnapshot = await getDocs(q);
             const result =  querySnapshot.docs.map((doc) => ({
                 id: doc.id,
                 data: doc.data(),
             }));
             setUsersData(Object.values(result));
-            console.log("result ici ::: ", Object.values(result));
         }
         getUsersDatas()
   
     }, [])
     
-    console.log("usersData ::: ", usersData);
 
     if (usersData !== undefined) {
         return(
