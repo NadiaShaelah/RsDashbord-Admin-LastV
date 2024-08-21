@@ -168,7 +168,7 @@ function OrderDetails() {
                                                         <td className="whitespace-nowrap px-6 py-4"><img className='w-20 h-20 object-cover' src={product.orderImageUrl[0]} alt={product.orderName} /></td>
                                                         <td className="whitespace-nowrap px-6 py-4">{product.orderName}</td>
                                                         <td className="whitespace-nowrap px-6 py-4">{orderInfos.dateCommande}</td>
-                                                        <td className="whitespace-nowrap px-6 py-4">{orderInfos?.heureCommande}</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">{orderInfos?.heureeCommande}</td>
                                                         <td className="whitespace-nowrap px-6 py-4">{product.orderEtat}</td>
                                                         <td className="whitespace-nowrap px-6 py-4">{orderInfos.email}</td>
                                                         <td className="whitespace-nowrap px-6 py-4">{product.orderOrganisation}</td>

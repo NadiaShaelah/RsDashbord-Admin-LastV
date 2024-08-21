@@ -113,7 +113,8 @@ function Orders() {
                                                 <th scope="col" className="px-6 py-4">#</th>
                                                 <th scope="col" className="px-6 py-4">Référence</th>
                                                 <th scope="col" className="px-6 py-4">Client</th>
-                                                <th scope="col" className="px-6 py-4">Prix avec frais</th>
+                                                <th scope="col" className="px-6 py-4">Prix</th>
+                                                <th scope="col" className="px-6 py-4">Frais d'expédition</th>
                                                 <th scope="col" className="px-6 py-4">Date</th>
                                                 <th scope="col" className="px-6 py-4">Etat</th>
                                                 <th scope="col" className="px-6 py-4">Paiement</th>
@@ -126,7 +127,8 @@ function Orders() {
                                                 <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/order-details?id=${order.commandeId}`}>{index+1}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.commandeId}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.email}</Link></td>
-                                                <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.totalPrice}</Link></td>
+                                                <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.subtotalPrice}</Link></td>
+                                                <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.frais}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.dateCommande}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.status}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.modePaiement}</Link></td>

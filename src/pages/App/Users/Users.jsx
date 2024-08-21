@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, serverTimestamp } from "firebase/firestore";
 import { db } from '../../../firebase-config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -19,6 +19,7 @@ function Users() {
             const result =  querySnapshot.docs.map((doc) => ({
                 id: doc.id,
                 data: doc.data(),
+                createdAt: serverTimestamp()
             }));
             setUsersData(Object.values(result));
         }
