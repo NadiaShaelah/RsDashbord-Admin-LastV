@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { OrdersTab, OrdersTabs } from './OrdersTabs'
 
 import { database } from '../../../firebase-config'
-import { getDatabase, onValue, ref, update, query, limitToLast, orderByChild, orderByValue } from "firebase/database";
+import { getDatabase, onValue, ref, update, query, orderByChild, orderByValue } from "firebase/database";
 
 
 import { where, orderBy, getDocs } from "firebase/firestore";
