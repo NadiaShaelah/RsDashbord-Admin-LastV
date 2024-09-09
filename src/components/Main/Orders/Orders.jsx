@@ -21,6 +21,9 @@ function Orders() {
     const [openValidate, setOpenValidate] = useState(false);
     const [load, setLoad] = useState(true)
 
+    const totalLength = Object.values(ordersDatas).length;
+    console.log("totalLength :: ", totalLength);
+
     const handleTrue = () => {
         alert('Ok! Delete complete');
     };
@@ -56,7 +59,7 @@ function Orders() {
     const ReglerAnOrder = (command) => {
         console.log("command ::: ", command);
         if(command.commandeId) {
-            if(command.modePaiement === "Espèce" || command.modePaiement === "Carte stripe") {
+            if(command.modePaiement === "Espèce" || command.modePaiement === "Carte stripe" || command.modePaiement === "Stripe" || command.modePaiement === "stripe") {
                 try {
                     update(ref(getDatabase(database), `/Commandes/${command.commandeId}`), {
                         status: "Réglée",
@@ -124,7 +127,7 @@ function Orders() {
                                             {ordersDatas && ordersDatas !== "" ?
                                             Object.values(ordersDatas).reverse().map((order,index) => (
                                             <tr key={index} className="border-b dark:border-blue-300 hover:bg-blue-50 cursor-pointer">
-                                                <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/order-details?id=${order.commandeId}`}>{index+1}</Link></td>
+                                                <td className="whitespace-nowrap px-6 py-4 font-medium"><Link to={`/order-details?id=${order.commandeId}`}>{totalLength-index}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.commandeId}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.email}</Link></td>
                                                 <td className="whitespace-nowrap px-6 py-4"><Link to={`/order-details?id=${order.commandeId}`}>{order.subtotalPrice}</Link></td>

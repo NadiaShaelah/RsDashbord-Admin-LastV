@@ -6,6 +6,7 @@ import QuoteDetails from '../../components/Main/Quotes/QuoteDetails'
 import DashboardPage from './DashboardPage/DashboardPage'
 import Users from './Users/Users'
 import UserDetails from './Users/UserDetails'
+import TasksPage from './TasksPage/TasksPage'
 
 function AppRouter() {
     return (
@@ -18,6 +19,7 @@ function AppRouter() {
             <Route path='/api' element={<run />} />
             <Route path='/users' element={<Users/>} />
             <Route path='/user-details' element={<UserDetails/>} />
+            <Route path='/task' element={<TasksPage/>} />
         </Routes>
     )
 }

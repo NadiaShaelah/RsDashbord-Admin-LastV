@@ -44,7 +44,7 @@ function SideBar() {
                                 <FontAwesomeIcon className='lg:text-3xl xl:text-xl' icon={faUsers}/>
                                 <span className='lg:hidden xl:flex text-lg'>Utilisateurs</span>
                             </Link>
-                            <Link className='flex gap-2 items-center transition duration-500 ease-in-out hover:text-blue-200 text-center'>
+                            <Link to={"/task"} className='flex gap-2 items-center transition duration-500 ease-in-out hover:text-blue-200 text-center'>
                                 <FontAwesomeIcon className='lg:text-3xl xl:text-xl' icon={faTasks}/>
                                 <span className='lg:hidden xl:flex text-lg'>Tâches</span>
                             </Link>
